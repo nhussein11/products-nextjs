@@ -6,10 +6,10 @@ services:
     ports:
       - "5432:5432"
     environment:
-      - DATABASE_HOST=127.0.0.1
-      - POSTGRES_USER=nico
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_DB=db-nextjs
+      - DATABASE_HOST=${DATABASE_HOST}
+      - POSTGRES_USER= ${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}
       
   pgadmin:
     image: dpage/pgadmin4

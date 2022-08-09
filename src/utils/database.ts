@@ -1,9 +1,15 @@
-import {Pool} from 'pg';
+import { Pool } from 'pg';
 
-new Pool({
-  user:'postgres',
-  password:'postgres',
-  host:'localhost',
-  port:5432,
-  database: ''
-})
+let connection: any;
+
+if (!connection) {
+  connection = new Pool({
+    user: 'nico',
+    password: 'postgres',
+    host: '127.0.0.1',
+    port: 5432,
+    database: 'db-nextjs'
+  });
+}
+
+export { connection };
