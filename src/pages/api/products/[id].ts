@@ -8,7 +8,7 @@ const prisma = new PrismaClient()
 export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     const { method, body, query: { id } } = req;
-
+    
 
     switch (method) {
         case 'GET':

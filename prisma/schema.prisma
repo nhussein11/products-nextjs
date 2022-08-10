@@ -8,9 +8,18 @@ datasource db {
 }
 
 model Product {
-  id    Int    @id @default(autoincrement())
-  name  String @db.VarChar(255)
-  price Int    @db.Integer()
+  id            Int            @id @default(autoincrement())
+  name          String         @db.VarChar(255)
+  price         Int            @db.Integer()
+  ProductDetail ProductDetail?
+}
+
+model ProductDetail {
+  id          String          @id @default(uuid())
+  description String          @db.VarChar(255)
+  category    ProductCategory @default(A)
+  product     Product         @relation(fields: [productId], references: [id])
+  productId   Int             @unique
 }
 
 model User {
@@ -20,4 +29,10 @@ model User {
   username  String   @db.VarChar(255)
   password  String   @db.VarChar(255)
   createdAt DateTime @default(now())
+}
+
+enum ProductCategory {
+  A
+  B
+  C
 }
